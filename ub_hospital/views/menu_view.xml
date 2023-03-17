@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="ub_hospital_main_menu"
+              web_icon="ub_hospital,static/description/icon.png"
+              name="Hospital management" action="ub_hospital_visit_act_window"/>
+    <menuitem name="Doctor" id="ub_hospitale_doctor_menu" parent="ub_hospital_main_menu" sequence="100"
+              action="ub_hospital_doctor_act_window"/>
+    <menuitem name="Patient" id="ub_hospitale_patient_menu" parent="ub_hospital_main_menu" sequence="500"
+              action="ub_hospital_patient_act_window"/>
+    <menuitem name="Disease" id="ub_hospitale_disease_menu" parent="ub_hospital_main_menu" sequence="600"
+              action="ub_hospital_disease_act_window"/>
+
+
+</odoo>
+

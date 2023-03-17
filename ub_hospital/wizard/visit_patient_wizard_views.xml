@@ -1,0 +1,39 @@
+<odoo>
+    <record id="ub_hospital_wizard_menu" model="ir.ui.view">
+        <field name="name">visit.patient.wizard.form</field>
+        <field name="model">visit.patient.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="patient_id" readonly="1" invisible="1"/>
+                    </group>
+                    <separator/>
+                    <group>
+                        <field name="date_from" widget="date"/>
+                        <field name="date_to" widget="date"/>
+                    </group>
+
+                    <footer>
+                        <button name="action_generate_report"
+                                string="Generate Report"
+                                type="object"
+                                class="btn-primary"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ub_hospital_visit_patient_wizard" model="ir.actions.act_window">
+        <field name="name">Visit Patient</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">visit.patient.wizard</field>
+        <field name="target">new</field>
+         <field name="binding_model_id" ref="model_ub_hospital_patient"/>
+        <field name="binding_view_types">form</field>
+        <field name="view_mode">form</field>
+        <field name="context">{'default_patient_id': active_id}</field>
+    </record>
+
+</odoo>

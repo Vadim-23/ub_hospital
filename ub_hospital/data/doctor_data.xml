@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="doctor_1" model="ub.hospital.doctor">
+        <field name="name">Dr. John</field>
+        <field name="specialization">Cardiologist</field>
+        <field name="image"
+               type="base64"
+               file="ub_hospital/static/src/img/doctor_1.png"/>
+    </record>
+
+    <record id="doctor_2" model="ub.hospital.doctor">
+        <field name="name">Dr. Mary</field>
+        <field name="specialization">Neurologist</field>
+        <field name="image"
+               type="base64"
+               file="ub_hospital/static/src/img/doctor_2.png"/>
+    </record>
+
+    <record id="doctor_3" model="ub.hospital.doctor">
+        <field name="name">Dr. Peter</field>
+        <field name="specialization">Dentist</field>
+        <field name="image"
+               type="base64"
+               file="ub_hospital/static/src/img/doctor_3.png"/>
+    </record>
+
+
+</odoo>

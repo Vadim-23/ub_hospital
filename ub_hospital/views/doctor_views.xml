@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="ub_hospital_doctor_form_view" model="ir.ui.view">
+        <field name="name">ub.hospital.doctor.form</field>
+        <field name="model">ub.hospital.doctor</field>
+        <field name="arch" type="xml">
+            <form string="ModelTitle">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name"/>
+                        </h1>
+                    </div>
+                    <field name="image" widget="image" class="oe_avatar"/>
+                    <group>
+                        <field name="specialization"/>
+                        <field name="active" invisible="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Patients">
+                            <field name="patient_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="ub_hospital_doctor_tree_view" model="ir.ui.view">
+        <field name="name">ub.hospital.doctor.tree</field>
+        <field name="model">ub.hospital.doctor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="patient_ids"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="ub_hospital_doctor_act_window" model="ir.actions.act_window">
+        <field name="name">Doctor`s</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ub.hospital.doctor</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new doctor.
+            </p>
+        </field>
+    </record>
+
+</odoo>

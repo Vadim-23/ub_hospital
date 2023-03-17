@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <record id="disease" model="ub.hospital.disease">
+        <field name="name">Disease 1</field>
+    </record>
+
+    <record id="disease_2" model="ub.hospital.disease">
+        <field name="name">Disease 2</field>
+    </record>
+
+    <record id="disease_3" model="ub.hospital.disease">
+        <field name="name">Disease 3</field>
+    </record>
+
+</odoo>

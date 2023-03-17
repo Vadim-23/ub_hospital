@@ -1,0 +1,20 @@
+<odoo>
+    <record id="report_patient_visit" model="ir.actions.report">
+        <field name="name">Patient Visit</field>
+        <field name="model">ub.hospital.patient</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">ub_hospital.report_patient_visits</field>
+        <field name="report_file">ub_hospital.report_patient_visits</field>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_conducted_visit" model="ir.actions.report">
+        <field name="name">Conducted Visit</field>
+        <field name="model">ub.hospital.doctor</field>
+        <field name="report_type">qweb-html</field>
+        <field name="report_name">ub_hospital.report_conducted_visits</field>
+        <field name="report_file">ub_hospital.report_conducted_visits</field>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

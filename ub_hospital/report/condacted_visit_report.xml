@@ -1,0 +1,83 @@
+<odoo>
+    <template id="report_conducted_visits">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1>Інформація про лікаря:
+                                <t t-esc="doctor_name"/>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Пацієнт:
+                                <t t-esc="patient_name"/>
+                            </h2>
+                            <h3>Телефон:
+                                <t t-esc="patient_phone"/>
+                            </h3>
+                            <h3>Всього відвідано візитів:
+                                <t t-esc="count"/>
+                            </h3>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>Проведені візити лікаря за період:
+                                з
+                                <t t-esc="start_date"/>
+                                по
+                                <t t-esc="end_date"/>
+                            </h2>
+                        </div>
+                    </div>
+                    <table width="100%" id="o_main_table"
+                           class="table table-sm o_main_table" border="1"
+                           cellspacing="0"
+                           cellpadding="2" style="border-collapse: collapse;">
+                        <thead style="display: table-row-group">
+                            <tr>
+                                <td name="th_number" class="text-center">
+                                    <b>№</b>
+                                </td>
+                                <td class="text-center">Дата візиту</td>
+                                <td class="text-center">Діагноз</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="data" t-as="visit">
+                                <t t-set="current_row_number" t-value="0"/>
+                                <tr t-att-class="'bg-200 font-weight-bold o_line_section' if docs else 'font-italic o_line_narration'">
+                                    <td name="td_number" align="center">
+                                        <t t-set="current_row_number"
+                                           t-value="current_row_number + 1"/>
+                                        <span t-raw="current_row_number"
+                                              style="text-indent:10px"/>
+                                    </td>
+                                    <td name="th_date_req" class="text-center">
+                                        <span t-esc="visit.get('date_checkup')"/>
+                                    </td>
+                                    <td name="th_description" class="text-center">
+                                        <span t-esc="visit.get('diagnosis')"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </tbody>
+                    </table>
+                    <table id="o_sub_table" width="100%">
+                        <tr>
+                            <td class="text-center">
+                                <span>Підпис лікаря</span>
+                            </td>
+                            <td class="text-center">
+                                <span>Підпис пацієнта</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

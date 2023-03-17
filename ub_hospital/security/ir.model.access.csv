@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ub_hospital_doctor,ub.hospital.doctor ,model_ub_hospital_doctor,base.group_user,1,1,1,1
+access_ub_hospital_patient,ub.hospital.patient ,model_ub_hospital_patient,base.group_user,1,1,1,1
+access_ub_hospital_disease,ub.hospital.disease ,model_ub_hospital_disease,base.group_user,1,1,1,1
+access_ub_hospital_visit,ub.hospital.visit ,model_ub_hospital_visit,base.group_user,1,1,1,1
+
+access_visit_patient_wizard,visit.patient.wizard,model_visit_patient_wizard,base.group_user,1,1,1,1
+access_conducted_visits_wizard,conducted.visits.wizard,model_conducted_visits_wizard,base.group_user,1,1,1,1

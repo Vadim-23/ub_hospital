@@ -8,7 +8,8 @@ class UBHospitalVisit(models.Model):
     _description = 'Description'
 
     name = fields.Char(compute='_compute_name', )
-    date_start = fields.Datetime(default=fields.Datetime.now(), required=True)
+    date_start = fields.Datetime(default=fields.Datetime.now(), required=True,
+                                 string='Planned Date')
     doctor_id = fields.Many2one('ub.hospital.doctor', )
     patient_id = fields.Many2one('ub.hospital.patient', required=True)
     disease_id = fields.Many2one('ub.hospital.disease', )
@@ -96,7 +97,7 @@ class UBHospitalVisit(models.Model):
     def action_checkup(self):
         if not self.doctor_id:
             raise UserError(_("Please select a "
-                            "doctor before marking this visit as done."))
+                              "doctor before marking this visit as done."))
         self.state = 'checkup'
         self.date_checkup = fields.Datetime.now()
         self.patient_id.doctor_id = self.doctor_id.id
@@ -104,7 +105,7 @@ class UBHospitalVisit(models.Model):
     def action_done(self):
         if not self.date_checkup or not self.diagnosis:
             raise UserError(_("Please fill in the required"
-                            " fields before marking this visit as done."))
+                              " fields before marking this visit as done."))
         self.state = 'done'
 
     def action_draft(self):
@@ -118,7 +119,7 @@ class UBHospitalVisit(models.Model):
         if self.state == 'checkup' and \
                 (not self.date_checkup or not self.diagnosis):
             raise UserError(_("Please fill in the required"
-                            " fields before marking this visit as done."))
+                              " fields before marking this visit as done."))
 
     def write(self, vals):
         if vals.get('date_start'):
@@ -144,5 +145,5 @@ class UBHospitalVisit(models.Model):
         for record in self:
             if record.diagnosis:
                 raise UserError(_("You cannot delete or archive "
-                                "a visit with a diagnosis."))
+                                  "a visit with a diagnosis."))
         return super(UBHospitalVisit, self).unlink()
